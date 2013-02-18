@@ -14,9 +14,7 @@ public class Main {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+	public static void main(String[] args) {		
 		// Chargement de la carte de depart et de la hauteur d'eau
 		Carte c = InstancesCarte.carte2();
 		// hauteur d'eau de depart
