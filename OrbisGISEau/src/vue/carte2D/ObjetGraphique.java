@@ -1,4 +1,4 @@
-package vue;
+package vue.carte2D;
 
 import java.awt.Color;
 import java.awt.Graphics;

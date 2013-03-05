@@ -46,10 +46,9 @@ public class Fonctions {
 			if(a.getP2().getZ() == heau){
 				listePointsEau.add(new PointEau(a.getP2(), a.getId()));
 			}
-			//Si l'un est au dessus et l'autre en dessous
+			//Si l'un est au-dessus et l'autre en dessous
 			if((a.getP1().getZ() < heau && a.getP2().getZ() > heau)
 					|| (a.getP1().getZ() > heau && a.getP2().getZ() < heau)){
-				//Si le point n'etait pas deja dans a
 				listePointsEau.add(intersection(a, heau));
 			}
 		}
@@ -326,8 +325,7 @@ public class Fonctions {
 	}
 
 	/**
-	 * Connaissant une arete et un point de cette arete, la methode renvoie.
-	 * l'autre point
+	 * Connaissant une arete et un point de cette arete, la methode renvoie l'autre point.
 	 * @param a
 	 * @param p1
 	 * @return
@@ -415,7 +413,7 @@ public class Fonctions {
 			Point p, Arete a){
 		ArrayList<Point> listePoints = ensemblePointHauteurEauTrianglesContigus(c, listePointsEau, a, p);
 		//Si la liste est vide, c'est que p est arrive sur une extremite et qu'il doit poursuivre
-		//jusqu'au prochain sommet (a droite)
+		//jusqu'au prochain sommet (a droite).
 		if(listePoints.size() == 0){
 			//Si p est un sommet du graphe
 			if(c.getEnsemblePoint().contains(p)){
@@ -454,7 +452,7 @@ public class Fonctions {
 
 	/**
 	 * Cette methode renvoie l'ensemble des points a hauteur d'eau dans les triangles contigus
-	 * (sauf l'autre point extremite de l'arete).
+	 * (sauf l'autre point extremite de l'arete a).
 	 * @param c
 	 * @param listePointsEau
 	 * @param a

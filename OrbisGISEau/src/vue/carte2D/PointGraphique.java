@@ -1,4 +1,4 @@
-package vue;
+package vue.carte2D;
 
 
 import geometrie.Point;
@@ -9,15 +9,17 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 
+import main.Controleur;
+
 public class PointGraphique extends ObjetGraphique{
 
 	protected int x;
 	protected int y;	
 
-	public PointGraphique(Point p, Color couleur, int epaisseur) {
+	public PointGraphique(Point p, Color couleur, int epaisseur, Controleur c) {
 		super();
-		this.x = (int) p.getX();
-		this.y = (int) p.getY();
+		this.x = (int) ((p.getX() - c.minimumXCarte())/c.getZoom()) + 50;
+		this.y = (int) ((p.getY() - c.minimumYCarte())/c.getZoom()) + 160;
 		this.couleur = couleur;
 		this.epaisseur = epaisseur;
 	}

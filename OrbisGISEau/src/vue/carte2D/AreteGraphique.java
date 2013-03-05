@@ -1,4 +1,4 @@
-package vue;
+package vue.carte2D;
 
 
 import geometrie.Arete;
@@ -9,6 +9,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 
+import main.Controleur;
+
 
 public class AreteGraphique extends ObjetGraphique{
 
@@ -17,12 +19,12 @@ public class AreteGraphique extends ObjetGraphique{
 	protected int x2;
 	protected int y2;
 	
-	public AreteGraphique(Arete a, Color couleur, int epaisseur) {
+	public AreteGraphique(Arete a, Color couleur, int epaisseur, Controleur c) {
 		super();
-		this.x1 = (int) a.getP1().getX();
-		this.y1 = (int) a.getP1().getY();
-		this.x2 = (int) a.getP2().getX();
-		this.y2 = (int) a.getP2().getY();
+		this.x1 = (int) ((a.getP1().getX() - c.minimumXCarte())/c.getZoom()) + 50;
+		this.y1 = (int) ((a.getP1().getY() - c.minimumYCarte())/c.getZoom()) + 160;
+		this.x2 = (int) ((a.getP2().getX() - c.minimumXCarte())/c.getZoom()) + 50;
+		this.y2 = (int) ((a.getP2().getY() - c.minimumYCarte())/c.getZoom()) + 160;
 		this.couleur = couleur;
 		this.epaisseur = epaisseur;
 	}

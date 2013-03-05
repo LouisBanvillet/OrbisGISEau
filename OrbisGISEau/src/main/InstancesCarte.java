@@ -34,7 +34,7 @@ public class InstancesCarte {
 		listeTriangle.add(new Triangle(a1,m,a2));
 		listeTriangle.add(new Triangle(a2,m,a3));
 		listeTriangle.add(new Triangle(a3,m,a4));
-		return new Carte(listePoint, listeArete, listeTriangle, m);
+		return new Carte(listePoint, listeArete, listeTriangle);
 	}
 	
 	public static Carte carte2(){
@@ -177,7 +177,7 @@ public class InstancesCarte {
 		listeTriangle.add(new Triangle(a11,a12,a21));
 		listeTriangle.add(new Triangle(a12,a13,a21));
 		listeTriangle.add(new Triangle(a13,a21,a22));
-		return new Carte(listePoint, listeArete, listeTriangle, m);
+		return new Carte(listePoint, listeArete, listeTriangle);
 	}
 
 }

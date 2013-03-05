@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Fonctions2 {
 	
 	/**
-	 * Indique si un point appartient a une zone (donnee sous forme d'une liste d'aretes).
+	 * Indique si un point appartient a une zone.
 	 * @param p
 	 * @param listeArete
 	 * @param listePoint

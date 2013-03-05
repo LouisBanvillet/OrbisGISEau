@@ -6,21 +6,13 @@ public class Carte {
 	
 	protected ArrayList<Point> ensemblePoint;
 	protected ArrayList<Arete> ensembleArete;
-	protected ArrayList<Triangle> ensembleTriangle;	
-	protected Point pointEau;
-	
-	public Carte(ArrayList<Point> ensemblePoint, ArrayList<Arete> ensembleArete) {
-		this.ensemblePoint = ensemblePoint;
-		this.ensembleArete = ensembleArete;
-		this.ensembleTriangle = listeTriangle();
-	}
+	protected ArrayList<Triangle> ensembleTriangle;
 	
 	public Carte(ArrayList<Point> ensemblePoint, ArrayList<Arete> ensembleArete, 
-			ArrayList<Triangle> ensembleTriangle, Point pointEau) {
+			ArrayList<Triangle> ensembleTriangle) {
 		this.ensemblePoint = ensemblePoint;
 		this.ensembleArete = ensembleArete;
 		this.ensembleTriangle = ensembleTriangle;
-		this.pointEau = pointEau;
 	}
 	
 	//retourne la liste des triangles connaissant la liste des aretes
@@ -52,12 +44,4 @@ public class Carte {
 		this.ensembleTriangle = ensembleTriangle;
 	}
 
-	public Point getPointEau() {
-		return pointEau;
-	}
-
-	public void setPointEau(Point pointEau) {
-		this.pointEau = pointEau;
-	}
-		
 }
