@@ -73,7 +73,7 @@ public class Algorithme {
 			mais elle se demontre.
 			*/
 			else{
-				p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, a);
+				p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, a, heau);
 				a = new Arete(p, p1);
 				p = p1;
 			}
@@ -110,14 +110,14 @@ public class Algorithme {
 			
 			//On cherche l'arete de depart.
 			Arete areteSommetPointEau = new Arete(listePointsEmergesInternes.get(0), p);
-			p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, areteSommetPointEau);
+			p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, areteSommetPointEau, heau);
 			a = new Arete(p, p1);
 			p = p1;
 			listePointsIle.add(p);
 			listeAretesIle.add(a);
 			
 			while(listePointsIle.get(listePointsIle.size()-1) != listePointsIle.get(0)){
-				p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, a);
+				p1 = Fonctions.pointPlusADroite(c, listePointsEau, p, a, heau);
 				a = new Arete(p, p1);
 				p = p1;
 				listePointsIle.add(p);

@@ -101,10 +101,10 @@ public class Fonctions {
 		ArrayList<Arete> listeArete = aretesExternes(c);
 		for(Arete a : listeArete){
 			if(p instanceof PointEau){
-				if(pointAppartientArete((PointEau) p, a)){return true;}				
+				if(pointAppartientArete((PointEau) p, a)){return true;}
 			}
 			else{
-				if(pointAppartientExtremiteArete(p, a));
+				if(pointAppartientExtremiteArete(p, a)){return true;}
 			}
 		}
 		return false;
@@ -382,7 +382,7 @@ public class Fonctions {
 	 */
 	public static boolean areteContientArete(Carte c, Arete a1, Arete a2){
 		//Si a2 est une arete du graphe initial
-		if(c.getEnsembleArete().contains(a2)){
+		if(c.getEnsemblePoint().contains(a2.getP1()) && c.getEnsemblePoint().contains(a2.getP2())){
 			if(pointAppartientExtremiteArete(a2.getP1(), a1) && pointAppartientExtremiteArete(a2.getP2(), a1)){
 				return true;
 			}
@@ -410,11 +410,16 @@ public class Fonctions {
 	 * @return
 	 */
 	public static Point pointPlusADroite(Carte c, ArrayList<PointEau> listePointsEau, 
-			Point p, Arete a){
+			Point p, Arete a, double heau){
 		ArrayList<Point> listePoints = ensemblePointHauteurEauTrianglesContigus(c, listePointsEau, a, p);
 		//Si la liste est vide, c'est que p est arrive sur une extremite et qu'il doit poursuivre
-		//jusqu'au prochain sommet (a droite).
+		//jusqu'au prochain sommet (a droite). Il existe un autre cas : a.p1 et a.p2 sont des points d'eau.
 		if(listePoints.size() == 0){
+			//On traite le cas rare ou l'arete est a hauteur d'eau, le point courant est a l'interieur
+			//et il n'y a pas d'arete a hauteur d'eau ensuite.
+			if(a.getP1().getZ() == heau && a.getP2().getZ() == heau && !pointExterne(c, p)){
+				return autrePointArete(a, p);
+			}
 			//Si p est un sommet du graphe
 			if(c.getEnsemblePoint().contains(p)){
 				ArrayList<Arete> listeAretesContiguesExternes = intersectionListeArete(
