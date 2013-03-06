@@ -7,13 +7,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import main.Controleur;
-import vue.controle.AffichageCarteVue;
-import vue.controle.ChargementCarteVue;
-import vue.controle.ChoixHauteurEauVue;
-import vue.controle.ChoixPointEauVue;
+import vue.panneaux.AffichageCarteVue;
+import vue.panneaux.ChargementCarteVue;
+import vue.panneaux.ChoixHauteurEauVue;
+import vue.panneaux.ChoixPointEauVue;
 
 
 /**
@@ -26,6 +27,8 @@ import vue.controle.ChoixPointEauVue;
 public class FenetreControle extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	
+	protected Controleur controleurChoix;
 
 	//Les vues
 	private ChargementCarteVue chargementCarte;
@@ -41,6 +44,8 @@ public class FenetreControle extends JFrame implements ActionListener {
 	private LayoutControleur contentPanel = new LayoutControleur();
 
 	public FenetreControle(Controleur controleur) {
+		this.controleurChoix = controleur;
+		
 		this.chargementCarte = new ChargementCarteVue(controleur);
 		this.choixPointEau = new ChoixPointEauVue(controleur);
 		this.choixHauteurEau = new ChoixHauteurEauVue(controleur);
@@ -78,10 +83,32 @@ public class FenetreControle extends JFrame implements ActionListener {
 		if (obj == precedent) {
 			this.contentPanel.previous();
 		} else if (obj == suivant) {
-			if(currentCard.equals(this.choixHauteurEau)){
-				choixHauteurEau.generer();
+			if(currentCard.equals(this.chargementCarte)){
+//				if(controleurChoix.getFichierCarte() == null){
+//					JOptionPane.showMessageDialog(null, "Aucun fichier n'est sélectionné.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+//                    return;
+//				} else{
+					this.contentPanel.next();					
+//				}
+			} else if(currentCard.equals(this.choixPointEau)){
+				if(controleurChoix.getPointEau() == null){
+					JOptionPane.showMessageDialog(null, "Aucun point n'est sélectionné.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+				} else{
+					this.contentPanel.next();					
+				}
+			} else if(currentCard.equals(this.choixHauteurEau)){
+				if(choixHauteurEau.heauSelection() <= controleurChoix.getPointEau().getZ()){
+					JOptionPane.showMessageDialog(null, "La hauteur d'eau doit être supérieure à l'altitude du point d'entrée.", 
+							"Erreur", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+				} else{
+					choixHauteurEau.generer();
+					this.contentPanel.next();					
+				}
+			} else{
+				this.contentPanel.next();				
 			}
-			this.contentPanel.next();
 		}
 
 		currentCard = this.contentPanel.getCurrentCard();

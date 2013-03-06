@@ -21,10 +21,10 @@ public class AreteGraphique extends ObjetGraphique{
 	
 	public AreteGraphique(Arete a, Color couleur, int epaisseur, Controleur c) {
 		super();
-		this.x1 = (int) ((a.getP1().getX() - c.minimumXCarte())/c.getZoom()) + 50;
-		this.y1 = (int) ((a.getP1().getY() - c.minimumYCarte())/c.getZoom()) + 160;
-		this.x2 = (int) ((a.getP2().getX() - c.minimumXCarte())/c.getZoom()) + 50;
-		this.y2 = (int) ((a.getP2().getY() - c.minimumYCarte())/c.getZoom()) + 160;
+		this.x1 = (int) ((a.getP1().getX() - c.getMinimumXCarte())/c.getZoom()) + 50;
+		this.y1 = (int) ((a.getP1().getY() - c.getMinimumYCarte())/c.getZoom()) + 160;
+		this.x2 = (int) ((a.getP2().getX() - c.getMinimumXCarte())/c.getZoom()) + 50;
+		this.y2 = (int) ((a.getP2().getY() - c.getMinimumYCarte())/c.getZoom()) + 160;
 		this.couleur = couleur;
 		this.epaisseur = epaisseur;
 	}

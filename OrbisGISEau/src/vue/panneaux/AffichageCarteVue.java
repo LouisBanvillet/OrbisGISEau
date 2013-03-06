@@ -1,11 +1,11 @@
-package vue.controle;
+package vue.panneaux;
 
-import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import main.Controleur;
 import vue.AbstractVue;
 import vue.carte2D.PanneauCarte2D;
+import vue.carteJOGL.PanneauCarteJOGL;
 
 public class AffichageCarteVue extends AbstractVue {
 
@@ -13,6 +13,7 @@ public class AffichageCarteVue extends AbstractVue {
 	protected JTabbedPane tabbedPane = new JTabbedPane();
 
 	PanneauCarte2D panel2D;
+	PanneauCarteJOGL panelJOGL;
 
 	//Le controleur
 	private Controleur controleurChoix;
@@ -27,7 +28,7 @@ public class AffichageCarteVue extends AbstractVue {
 		panel2D = new PanneauCarte2D(controleurChoix);
 		tabbedPane.addTab("Carte 2D", null, panel2D, "Does nothing");
 
-		JPanel panelJOGL = new ChargementCarteVue(controleurChoix);
+		panelJOGL = new PanneauCarteJOGL(controleurChoix);
 		tabbedPane.addTab("Carte OpenGL", null, panelJOGL, "Does twice as much nothing");
 
 		this.add(tabbedPane);
@@ -35,6 +36,7 @@ public class AffichageCarteVue extends AbstractVue {
 	
 	public void majFenetre(){
 		panel2D.majFenetre();
+		panelJOGL.majFenetre();
 	}
 	
 }

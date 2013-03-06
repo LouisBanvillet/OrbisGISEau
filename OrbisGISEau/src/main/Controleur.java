@@ -31,9 +31,12 @@ public class Controleur {
 	public static int hauteurFenetreChoix = 400;
 	public static int largeurFenetreCarte = 700;
 	public static int hauteurFenetreCarte = 700;
+	protected double minimumXCarte, minimumYCarte, minimumZCarte, maximumXCarte, maximumYCarte, maximumZCarte;
 
 	//Paramètres utilisés pour la vue 2D
 	protected double zoom;
+	//Paramètres utilisés pour la vue 3D
+	protected double zoom3D;
 
 	public Controleur() {
 		new FenetreControle(this);
@@ -61,49 +64,74 @@ public class Controleur {
 	public void generer(){
 		listeFinaleArete = Algorithme.algorithme(carte, pointEau, heau);
 		listePointsEau = Fonctions.listePointsEau(carte, heau);
-		zoom = Math.max((maximumXCarte()- minimumXCarte())/Controleur.largeurFenetreCarte, 
-				(maximumYCarte() - minimumYCarte())/Controleur.hauteurFenetreCarte)/0.8;
+		
+		minimumXCarte(); maximumXCarte(); minimumYCarte(); maximumYCarte(); minimumZCarte(); maximumZCarte();
+		zoom = Math.max((maximumXCarte- minimumXCarte)/Controleur.largeurFenetreCarte, 
+				(maximumYCarte - minimumYCarte)/Controleur.hauteurFenetreCarte)/0.8;
+		zoom3D = Math.max((maximumXCarte- minimumXCarte)/2, 
+				(maximumYCarte - minimumYCarte)/2)/0.8;
+		zoom3D = Math.max(zoom3D, (maximumZCarte - minimumZCarte)/2)/2;
 		
 	}
 	
-	public double minimumXCarte(){
+	public void minimumXCarte(){
 		double minimumX = carte.getEnsemblePoint().get(0).getX();
 		for(Point p : carte.getEnsemblePoint()){
 			if(p.getX() < minimumX){
 				minimumX = p.getX();
 			}
 		}
-		return minimumX;
+		minimumXCarte = minimumX;
 	}
 	
-	public double maximumXCarte(){
+	public void maximumXCarte(){
 		double maximumX = carte.getEnsemblePoint().get(0).getX();
 		for(Point p : carte.getEnsemblePoint()){
 			if(p.getX() > maximumX){
 				maximumX = p.getX();
 			}
 		}
-		return maximumX;
+		maximumXCarte =  maximumX;
 	}
 	
-	public double minimumYCarte(){
+	public void minimumYCarte(){
 		double minimumY = carte.getEnsemblePoint().get(0).getY();
 		for(Point p : carte.getEnsemblePoint()){
 			if(p.getX() < minimumY){
 				minimumY = p.getY();
 			}
 		}
-		return minimumY;
+		minimumYCarte =  minimumY;
 	}
 	
-	public double maximumYCarte(){
+	public void maximumYCarte(){
 		double maximumY = carte.getEnsemblePoint().get(0).getY();
 		for(Point p : carte.getEnsemblePoint()){
 			if(p.getX() > maximumY){
 				maximumY = p.getY();
 			}
 		}
-		return maximumY;
+		maximumYCarte = maximumY;
+	}
+	
+	public void minimumZCarte(){
+		double minimumZ = carte.getEnsemblePoint().get(0).getZ();
+		for(Point p : carte.getEnsemblePoint()){
+			if(p.getX() < minimumZ){
+				minimumZ = p.getZ();
+			}
+		}
+		minimumZCarte = minimumZ;
+	}
+	
+	public void maximumZCarte(){
+		double maximumZ = carte.getEnsemblePoint().get(0).getZ();
+		for(Point p : carte.getEnsemblePoint()){
+			if(p.getX() > maximumZ){
+				maximumZ = p.getZ();
+			}
+		}
+		maximumZCarte = maximumZ;
 	}
 
 	public File getFichierCarte() {
@@ -160,6 +188,62 @@ public class Controleur {
 
 	public void setZoom(double zoom) {
 		this.zoom = zoom;
+	}
+
+	public double getZoom3D() {
+		return zoom3D;
+	}
+
+	public void setZoom3D(double zoom3d) {
+		zoom3D = zoom3d;
+	}
+
+	public double getMinimumXCarte() {
+		return minimumXCarte;
+	}
+
+	public void setMinimumXCarte(double minimumXCarte) {
+		this.minimumXCarte = minimumXCarte;
+	}
+
+	public double getMinimumYCarte() {
+		return minimumYCarte;
+	}
+
+	public void setMinimumYCarte(double minimumYCarte) {
+		this.minimumYCarte = minimumYCarte;
+	}
+
+	public double getMinimumZCarte() {
+		return minimumZCarte;
+	}
+
+	public void setMinimumZCarte(double minimumZCarte) {
+		this.minimumZCarte = minimumZCarte;
+	}
+
+	public double getMaximumXCarte() {
+		return maximumXCarte;
+	}
+
+	public void setMaximumXCarte(double maximumXCarte) {
+		this.maximumXCarte = maximumXCarte;
+	}
+
+	public double getMaximumYCarte() {
+		return maximumYCarte;
+	}
+
+	public void setMaximumYCarte(double maximumYCarte) {
+		this.maximumYCarte = maximumYCarte;
+	}
+
+	public double getMaximumZCarte() {
+		return maximumZCarte;
+	}
+
+	public void setMaximumZCarte(double maximumZCarte) {
+		this.maximumZCarte = maximumZCarte;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package vue.controle;
+package vue.panneaux;
 
 import geometrie.Point;
 
@@ -67,7 +67,6 @@ public class ChoixPointEauVue extends AbstractVue {
 
 
 	class ItemAction implements ActionListener {
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			controleurChoix.setPointEau((Point) choixPointComboBox.getSelectedItem());
@@ -85,19 +84,16 @@ public class ChoixPointEauVue extends AbstractVue {
 		@Override
 		public Component getListCellRendererComponent(JList<?> list, Object value, int index,
 				boolean isSelected, boolean cellHasFocus) {
-        	super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-			if (index < 0) {
-				setText("");
-			} else{
-				setText("Point n° " + ((Point) value).getId() + 
-						" (" + ((Point) value).getX() + ", " +  
-						((Point) value).getY() + ", " +  
-						((Point) value).getZ() + ")");
-			}
+			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+			setText(affichagePoint((Point) value));
 			setPreferredSize(new Dimension(240,20));
 
 			return this;
 		}
+	}
+	
+	public String affichagePoint(Point p){
+		return "Point n° " + p.getId() + " (" + p.getX() + ", " +	p.getY() + ", " + p.getZ() + ")";
 	}
 
 }

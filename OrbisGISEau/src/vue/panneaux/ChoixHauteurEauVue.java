@@ -1,4 +1,4 @@
-package vue.controle;
+package vue.panneaux;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -52,6 +52,10 @@ public class ChoixHauteurEauVue  extends AbstractVue {
 	public void generer(){
 		controleurChoix.setHeau(new Double(Double.parseDouble(choixHeauTextField.getText())));
 		controleurChoix.generer();
+	}
+	
+	public double heauSelection(){
+		return new Double(Double.parseDouble(choixHeauTextField.getText()));
 	}
 
 	public void majFenetre(){

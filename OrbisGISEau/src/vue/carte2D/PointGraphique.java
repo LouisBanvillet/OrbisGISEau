@@ -18,8 +18,8 @@ public class PointGraphique extends ObjetGraphique{
 
 	public PointGraphique(Point p, Color couleur, int epaisseur, Controleur c) {
 		super();
-		this.x = (int) ((p.getX() - c.minimumXCarte())/c.getZoom()) + 50;
-		this.y = (int) ((p.getY() - c.minimumYCarte())/c.getZoom()) + 160;
+		this.x = (int) ((p.getX() - c.getMinimumXCarte())/c.getZoom()) + 50;
+		this.y = (int) ((p.getY() - c.getMinimumYCarte())/c.getZoom()) + 160;
 		this.couleur = couleur;
 		this.epaisseur = epaisseur;
 	}

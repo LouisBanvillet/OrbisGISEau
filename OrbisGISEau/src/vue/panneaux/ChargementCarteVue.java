@@ -1,4 +1,4 @@
-package vue.controle;
+package vue.panneaux;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
