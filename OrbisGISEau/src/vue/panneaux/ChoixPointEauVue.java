@@ -59,7 +59,7 @@ public class ChoixPointEauVue extends AbstractVue {
 
 	public void majFenetre(){
 		choixPointComboBox.removeAllItems();
-		ArrayList<Point> listePoint = controleurChoix.getListePointFromCarte();
+		ArrayList<Point> listePoint = controleurChoix.getListePointsExternesFromCarte();
 		for(Point p : listePoint){
 			choixPointComboBox.addItem(p);
 		}

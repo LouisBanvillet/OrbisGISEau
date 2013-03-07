@@ -25,6 +25,7 @@ public class Controleur {
 	protected Point pointEau;
 	protected double heau;
 	protected ArrayList<PointEau> listePointsEau;
+	protected ArrayList<Point> listePointsExternes;
 	protected ArrayList<Arete> listeFinaleArete;
 
 	public static int largeurFenetreChoix = 400;
@@ -45,19 +46,23 @@ public class Controleur {
 		pointEau = null;
 		heau = 0.0;
 		listePointsEau = null;
+		listePointsExternes = new ArrayList<Point>();
 		listeFinaleArete = null;
 	}
 
 	//Renvoie la liste de points contenue dans le fichier fichierCarte.
-	public ArrayList<Point> getListePointFromCarte(){
-
-		//Lecture du fichier renvoyant une carte
-		//carte = lectureFichier(fichierCarte)
-		//return carte.getEnsemblePoint();
+	public ArrayList<Point> getListePointsExternesFromCarte(){
 
 		//Provisoire :
+		//Lecture du fichier renvoyant une carte
+		//carte = lectureFichier(fichierCarte)
 		carte = InstancesCarte.carte2();
-		return carte.getEnsemblePoint();
+		for(Point p : carte.getEnsemblePoint()){
+			if(Fonctions.pointExterne(carte, p)){
+				listePointsExternes.add(p);
+			}
+		}
+		return listePointsExternes;
 	}
 
 	//Génère la carte résultante de l'algorithme
@@ -172,6 +177,14 @@ public class Controleur {
 
 	public void setListePointsEau(ArrayList<PointEau> listePointsEau) {
 		this.listePointsEau = listePointsEau;
+	}
+
+	public ArrayList<Point> getListePointsExternes() {
+		return listePointsExternes;
+	}
+
+	public void setListePointsExternes(ArrayList<Point> listePointsExternes) {
+		this.listePointsExternes = listePointsExternes;
 	}
 
 	public ArrayList<Arete> getListeFinaleArete() {
