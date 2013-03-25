@@ -73,7 +73,7 @@ public class PgePanel extends GLJPanel implements GLEventListener {
         gl.glLoadIdentity();
         
         // definition de la matrice de projection
-        // vue en perspective, angle 45°, ratio largeur/hauteur, plan de clipping "near" et "far"
+        // vue en perspective, angle 45 degres, ratio largeur/hauteur, plan de clipping "near" et "far"
         glu.gluPerspective(45, (double) this.winAW / (double) this.winAH, 0.1, 100.0);
         
         // définition de la matrice MODELVIEW à partir de la matrice camera

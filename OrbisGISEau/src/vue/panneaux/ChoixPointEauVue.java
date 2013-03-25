@@ -93,7 +93,7 @@ public class ChoixPointEauVue extends AbstractVue {
 	}
 	
 	public String affichagePoint(Point p){
-		return "Point n° " + p.getId() + " (" + p.getX() + ", " +	p.getY() + ", " + p.getZ() + ")";
+		return "Point num " + p.getId() + " (" + p.getX() + ", " +	p.getY() + ", " + p.getZ() + ")";
 	}
 
 }
