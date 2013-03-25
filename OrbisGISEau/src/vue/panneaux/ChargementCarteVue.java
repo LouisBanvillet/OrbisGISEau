@@ -32,7 +32,7 @@ public class ChargementCarteVue extends AbstractVue {
 	private Controleur controleurChoix;
 
 	/**
-	 * Creation de la fenêtre
+	 * Creation de la fenetre
 	 */
 	public ChargementCarteVue(Controleur controleur) {
 		super();

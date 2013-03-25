@@ -99,7 +99,7 @@ public class FenetreControle extends JFrame implements ActionListener {
 				}
 			} else if(currentCard.equals(this.choixHauteurEau)){
 				if(choixHauteurEau.heauSelection() <= controleurChoix.getPointEau().getZ()){
-					JOptionPane.showMessageDialog(null, "La hauteur d'eau doit être superieure a l'altitude du point d'entree.", 
+					JOptionPane.showMessageDialog(null, "La hauteur d'eau doit etre superieure a l'altitude du point d'entree.", 
 							"Erreur", JOptionPane.INFORMATION_MESSAGE);
                     return;
 				} else{
@@ -129,7 +129,7 @@ public class FenetreControle extends JFrame implements ActionListener {
 			suivant.setText("Suivant");
 		}
 
-		//Si on affiche les cartes, la fenêtre s'agrandit.
+		//Si on affiche les cartes, la fenetre s'agrandit.
 		if(currentCard.equals(this.affichageCarte)){
 			setSize(Controleur.largeurFenetreCarte, Controleur.hauteurFenetreCarte);
 		}

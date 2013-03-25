@@ -28,7 +28,7 @@ public class ChoixPointEauVue extends AbstractVue {
 	private Controleur controleurChoix;
 
 	/**
-	 * Creation de la fenêtre
+	 * Creation de la fenetre
 	 */
 	public ChoixPointEauVue(Controleur controleur) {
 		super();
