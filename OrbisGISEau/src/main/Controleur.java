@@ -14,7 +14,7 @@ import algorithme.Fonctions;
 import vue.FenetreControle;
 
 /**
- * Ce controleur gere les les interractions entre les différentes données de l'application.
+ * Ce controleur gere les les interractions entre les differentes donnees de l'application.
  * 
  * @author Louis
  */
@@ -34,9 +34,9 @@ public class Controleur {
 	public static int hauteurFenetreCarte = 700;
 	protected double minimumXCarte, minimumYCarte, minimumZCarte, maximumXCarte, maximumYCarte, maximumZCarte;
 
-	//Paramètres utilisés pour la vue 2D
+	//Parametres utilises pour la vue 2D
 	protected double zoom;
-	//Paramètres utilisés pour la vue 3D
+	//Parametres utilises pour la vue 3D
 	protected double zoom3D;
 
 	public Controleur() {
@@ -65,7 +65,7 @@ public class Controleur {
 		return listePointsExternes;
 	}
 
-	//Génère la carte résultante de l'algorithme
+	//Genere la carte resultante de l'algorithme
 	public void generer(){
 		listeFinaleArete = Algorithme.algorithme(carte, pointEau, heau);
 		listePointsEau = Fonctions.listePointsEau(carte, heau);

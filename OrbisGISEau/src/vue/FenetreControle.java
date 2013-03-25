@@ -18,8 +18,8 @@ import vue.panneaux.ChoixPointEauVue;
 
 
 /**
- * On gere ici les différents vues. On commence par les initialiser et les
- * mettres dans le LayoutManager. Celui-ci permet d'effectuer les précédent-suivant
+ * On gere ici les differents vues. On commence par les initialiser et les
+ * mettres dans le LayoutManager. Celui-ci permet d'effectuer les precedent-suivant
  * 
  * Elle a besoin du controleurs en constructeur.
  * @author Louis
@@ -36,8 +36,8 @@ public class FenetreControle extends JFrame implements ActionListener {
 	private ChoixHauteurEauVue choixHauteurEau;
 	private AffichageCarteVue affichageCarte;
 
-	//Bouttons précédent-suivant
-	private JButton precedent = new JButton("Precédent");
+	//Bouttons precedent-suivant
+	private JButton precedent = new JButton("Precedent");
 	private JButton suivant = new JButton("Suivant");
 
 	//Le layout manager
@@ -54,9 +54,9 @@ public class FenetreControle extends JFrame implements ActionListener {
 		contentPanel.setPreferredSize(new Dimension(Controleur.largeurFenetreChoix,
 				Controleur.hauteurFenetreChoix-50));
 		contentPanel.add(chargementCarte, "OrbisGISEau - Chargement de la carte");
-		contentPanel.add(choixPointEau, "OrbisGISEau - Choix du point d'entrée");
+		contentPanel.add(choixPointEau, "OrbisGISEau - Choix du point d'entree");
 		contentPanel.add(choixHauteurEau, "OrbisGISEau - Choix de la hauteur d'eau");
-		contentPanel.add(affichageCarte, "OrbisGISEau - Carte générée");
+		contentPanel.add(affichageCarte, "OrbisGISEau - Carte generee");
 
 		add(contentPanel, BorderLayout.CENTER);
 
@@ -68,7 +68,7 @@ public class FenetreControle extends JFrame implements ActionListener {
 		p.add(suivant);
 		add(p, BorderLayout.SOUTH);
 
-		setTitle("OrbisGISEau - Recherche de zone inondée");
+		setTitle("OrbisGISEau - Recherche de zone inondee");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(Controleur.largeurFenetreChoix, Controleur.hauteurFenetreChoix);
 		setLocationRelativeTo(null);
@@ -85,21 +85,21 @@ public class FenetreControle extends JFrame implements ActionListener {
 		} else if (obj == suivant) {
 			if(currentCard.equals(this.chargementCarte)){
 //				if(controleurChoix.getFichierCarte() == null){
-//					JOptionPane.showMessageDialog(null, "Aucun fichier n'est sélectionné.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+//					JOptionPane.showMessageDialog(null, "Aucun fichier n'est selectionne.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
 //                    return;
 //				} else{
 					this.contentPanel.next();					
 //				}
 			} else if(currentCard.equals(this.choixPointEau)){
 				if(controleurChoix.getPointEau() == null){
-					JOptionPane.showMessageDialog(null, "Aucun point n'est sélectionné.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Aucun point n'est selectionne.", "Erreur", JOptionPane.INFORMATION_MESSAGE);
                     return;
 				} else{
 					this.contentPanel.next();					
 				}
 			} else if(currentCard.equals(this.choixHauteurEau)){
 				if(choixHauteurEau.heauSelection() <= controleurChoix.getPointEau().getZ()){
-					JOptionPane.showMessageDialog(null, "La hauteur d'eau doit être supérieure à l'altitude du point d'entrée.", 
+					JOptionPane.showMessageDialog(null, "La hauteur d'eau doit être superieure a l'altitude du point d'entree.", 
 							"Erreur", JOptionPane.INFORMATION_MESSAGE);
                     return;
 				} else{
@@ -113,7 +113,7 @@ public class FenetreControle extends JFrame implements ActionListener {
 
 		currentCard = this.contentPanel.getCurrentCard();
 
-		//Si on se trouve sur le panneau de choix de carte, on enlève le bouton précédent.
+		//Si on se trouve sur le panneau de choix de carte, on enleve le bouton precedent.
 		if(currentCard.equals(this.chargementCarte)){
 			precedent.setVisible(false);
 		}
@@ -121,9 +121,9 @@ public class FenetreControle extends JFrame implements ActionListener {
 			precedent.setVisible(true);
 		}
 
-		//Si on se trouve sur le panneau de choix de heau, on enlève le bouton suivant.
+		//Si on se trouve sur le panneau de choix de heau, on enleve le bouton suivant.
 		if(currentCard.equals(this.choixHauteurEau)){
-			suivant.setText("Générer");
+			suivant.setText("Generer");
 		}
 		else{
 			suivant.setText("Suivant");

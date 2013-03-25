@@ -20,7 +20,7 @@ import main.Controleur;
 import vue.AbstractVue;
 
 /**
- * Panel qui permet de choisir une carte à traiter.
+ * Panel qui permet de choisir une carte a traiter.
  * @author Louis
  */
 public class ChargementCarteVue extends AbstractVue {
@@ -32,7 +32,7 @@ public class ChargementCarteVue extends AbstractVue {
 	private Controleur controleurChoix;
 
 	/**
-	 * Création de la fenêtre
+	 * Creation de la fenêtre
 	 */
 	public ChargementCarteVue(Controleur controleur) {
 		super();
@@ -66,8 +66,8 @@ public class ChargementCarteVue extends AbstractVue {
 
 		// Affichage des informations
 		JPanel panelInfo = new JPanel();
-		JLabel info = new JLabel("<html>Info : ce plugin génère une carte de la zone inondée à partir des entrées suivantes : <br>" +
-				"une carte (compatible avec GDMS), un point d'entrée et une hauteur d'eau.<html>");
+		JLabel info = new JLabel("<html>Info : ce plugin genere une carte de la zone inondee a partir des entrees suivantes : <br>" +
+				"une carte (compatible avec GDMS), un point d'entree et une hauteur d'eau.<html>");
 		info.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 9));
 		panelInfo.setBorder(new EmptyBorder(50, 0, 10, 0));
 		panelInfo.setPreferredSize(new Dimension (Controleur.largeurFenetreChoix, 100));
@@ -92,7 +92,7 @@ public class ChargementCarteVue extends AbstractVue {
         // affichage
         dialogue.showOpenDialog(null);
          
-        // récupération du fichier sélectionné
+        // recuperation du fichier selectionne
         controleurChoix.setFichierCarte(dialogue.getSelectedFile());
         try {
 			choixCarteTextField.setText(dialogue.getSelectedFile().getCanonicalPath());

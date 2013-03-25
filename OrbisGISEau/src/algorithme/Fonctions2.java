@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 /**
- * Classe contenant toutes les fonctions necessaires a l'algorithme (2ème partie).
+ * Classe contenant toutes les fonctions necessaires a l'algorithme (2Ã¨me partie).
  * @author Louis
  *
  */

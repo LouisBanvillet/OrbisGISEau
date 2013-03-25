@@ -19,7 +19,7 @@ public class AffichageCarteVue extends AbstractVue {
 	private Controleur controleurChoix;
 
 	/**
-	 * Création de la fenêtre
+	 * Creation de la fenêtre
 	 */
 	public AffichageCarteVue(Controleur controleur) {
 		super();

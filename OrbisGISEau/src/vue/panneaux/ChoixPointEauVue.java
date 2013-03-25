@@ -28,7 +28,7 @@ public class ChoixPointEauVue extends AbstractVue {
 	private Controleur controleurChoix;
 
 	/**
-	 * Création de la fenêtre
+	 * Creation de la fenêtre
 	 */
 	public ChoixPointEauVue(Controleur controleur) {
 		super();
@@ -39,7 +39,7 @@ public class ChoixPointEauVue extends AbstractVue {
 
 		// Affichage de la consigne
 		JPanel panelConsigne = new JPanel();
-		JLabel consigne = new JLabel("Choisissez un point d'entrée :");
+		JLabel consigne = new JLabel("Choisissez un point d'entree :");
 		panelConsigne.setBorder(new EmptyBorder(10, 0, 80, 0));
 		panelConsigne.setPreferredSize(new Dimension (Controleur.largeurFenetreChoix, 100));
 		panelConsigne.add(consigne);
